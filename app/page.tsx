@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare } from 'lucide-react';
+import Navbar from "./components/navbar"
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,12 +35,10 @@ export default function Portfolio() {
     { category: "Tools", items: ["Git", "Docker", "AWS", "Jenkins", "VS Code", "Postman", "Jupyter Notebook", "Google Colab"] },
   ];
 
-  const scrollToSection = (section: React.SetStateAction<string>) => {
-    setActiveSection(section);
-    setMobileMenuOpen(false);
-  };
 
   return (
+
+    
     <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
       {/* Particle overlay */}
       
@@ -50,55 +49,7 @@ export default function Portfolio() {
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-brand/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
       {/* Navigation */}
-      <nav className="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
-            Portfolio
-            </div>
-            
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Projects', 'Contact', 'Blog'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`hover:text-emerald-400 transition-colors ${
-                    activeSection === item.toLowerCase() ? 'text-emerald-400' : 'text-white'
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-slate-800 border-t border-slate-700">
-            <div className="px-4 py-4 space-y-3">
-              {['Home', 'About', 'Projects', 'Contact', 'Blog'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block w-full text-left hover:text-emerald-900 transition-colors py-2 text-white"
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar/>
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
