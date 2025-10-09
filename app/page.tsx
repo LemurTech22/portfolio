@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare } from 'lucide-react';
 
-
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -41,32 +40,31 @@ export default function Portfolio() {
   };
 
   return (
-  <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
-  {/* Particle overlay */}
-  
-    <div className="absolute inset-0 z-0 animate-particles" />
+    <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
+      {/* Particle overlay */}
+      
+      <div className="absolute inset-0 z-0 animate-particles pointer-events-none" />
 
-    {/* Glowing floating blobs (optional depth effect) */}
-    <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl animate-pulse" />
-    <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      {/* Glowing floating blobs */}
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-brand/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
-
-    {/* Navigation */}
+      {/* Navigation */}
       <nav className="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-700">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
-              Portfolio
+            Portfolio
             </div>
             
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Projects', 'Contact',"Blog"].map((item) => (
+              {['Home', 'About', 'Projects', 'Contact', 'Blog'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`hover:text-emerald-600 transition-colors ${
-                    activeSection === item.toLowerCase() ? 'text-blue-400' : ''
+                  className={`hover:text-emerald-400 transition-colors ${
+                    activeSection === item.toLowerCase() ? 'text-emerald-400' : 'text-white'
                   }`}
                 >
                   {item}
@@ -92,7 +90,7 @@ export default function Portfolio() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block w-full text-left hover:text-blue-400 transition-colors py-2"
+                  className="block w-full text-left hover:text-emerald-900 transition-colors py-2 text-white"
                 >
                   {item}
                 </button>
@@ -106,11 +104,9 @@ export default function Portfolio() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
               Hi, I'm Jose Conde
             </h1>
-
             <p className="text-xl sm:text-2xl text-slate-300 mb-8">
               Full Stack Developer & Data Scientist
             </p>
@@ -118,20 +114,19 @@ export default function Portfolio() {
               I build exceptional digital experiences that combine beautiful design with powerful functionality.
             </p>
             <div className="flex justify-center gap-4 flex-wrap">
-              <button className="border border-slate-500 bg-gradient-to-r bg-emerald-500 hover:bg-gray-400 bg-clip-text text-transparent hover:border-emerald-300 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <button className="border-2 border-purple-700   text-emerald-500 hover:bg-purple-700 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
                 View My Work
               </button>
-              <button className="border border-slate-500 bg-gradient-to-r bg-emerald-500 hover:bg-gray-400 bg-clip-text text-transparent hover:border-emerald-300 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <button className="border-2 border-emerald-600 text-purple-400 hover:bg-emerald-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
                 Contact Me
               </button>
             </div>
           </div>
         </div>
       </section>
-      
-
+``
       {/* About Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-12">
             <User className="text-emerald-300" size={32} />
@@ -151,7 +146,7 @@ export default function Portfolio() {
             </div>
             
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-amber-500">Skills & Technologies</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-accent">Skills & Technologies</h3>
               <div className="space-y-4">
                 {skills.map((skillGroup) => (
                   <div key={skillGroup.category}>
@@ -160,7 +155,7 @@ export default function Portfolio() {
                       {skillGroup.items.map((skill) => (
                         <span
                           key={skill}
-                          className="bg-slate-700 px-3 py-1 rounded-full text-sm"
+                          className="bg-slate-900 text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-accent hover:text-white transition-colors cursor-default"
                         >
                           {skill}
                         </span>
@@ -178,7 +173,7 @@ export default function Portfolio() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-12">
-            <Briefcase className="text-red-300" size={32} />
+            <Briefcase className="text-emerald-400" size={32} />
             <h2 className="text-4xl font-bold">Featured Projects</h2>
           </div>
           
@@ -186,11 +181,15 @@ export default function Portfolio() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border border-slate-700 hover:border-emerald-500"
+                className="rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border-2 border-emerald-600 hover:border-slate-500 cursor-pointer"
               >
                 <div className="flex justify-between items-start mb-4">
                   <Code className="text-emerald-400" size={24} />
-                  <a href={project.link} className="text-slate-400 hover:text-blue-400">
+                  <a 
+                    href={project.link} 
+                    className="text-slate-400 hover:text-accent transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <ExternalLink size={20} />
                   </a>
                 </div>
@@ -200,7 +199,7 @@ export default function Portfolio() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs bg-slate-700 px-2 py-1 rounded text-blue-300"
+                      className="text-xs bg-gray-900 px-2 py-1 rounded text-purple-200"
                     >
                       {tech}
                     </span>
@@ -213,7 +212,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-8">
             <MessageSquare className="text-emerald-400" size={32} />
@@ -225,26 +224,38 @@ export default function Portfolio() {
           </p>
           
           <div className="flex justify-center gap-6 mb-8">
-            <a href="https://github.com/LemurTech22" className="bg-slate-700 p-4 rounded-full hover:bg-gray-500 transition-colors">
+            <a 
+              href="https://github.com/LemurTech22" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-slate-700 p-4 rounded-full hover:bg-gray-600 hover:scale-150 transition-all duration-300"
+            >
               <Github size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/jose-conde-mlai/" className="bg-slate-700 p-4 rounded-full hover:bg-blue-700 transition-colors">
+            <a 
+              href="https://www.linkedin.com/in/jose-conde-mlai/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-700 p-4 rounded-full hover:bg-blue-600 hover:scale-150 transition-all duration-300"
+            >
               <Linkedin size={24} />
             </a>
-            <a href="" className="bg-slate-700 p-4 rounded-full hover:bg-indigo-500 transition-colors">
+            <a 
+              href="mailto:jose.a.conde@outlook.com" 
+              className="bg-black p-4 rounded-full hover:bg-gray-900 hover:scale-150 transition-all duration-300"
+            >
               <Mail size={24} />
             </a>
           </div>
-          
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-slate-700">
+      <footer className="py-8 px-4 border-t border-brand-dark">
         <div className="max-w-6xl mx-auto text-center text-slate-400">
           <p>&copy; 2025 Jose Conde. Built with Next.js and Tailwind CSS.</p>
         </div>
       </footer>
-      </div>
+    </div>
   );
 }
