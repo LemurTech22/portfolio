@@ -3,3 +3,36 @@
 *{
   font-family: Outfit;
 }
+
+:root {
+  --brand: #af9bb6;
+  --midnight: #0f1724;
+  --accent: #fcf4ff;
+  --dark-theme: #11001f;
+}
+
+/* optional: dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: #241956;
+    --mid-transition: #91ad0182;
+    --midnight: #031007;
+  }
+}
+
+/* Moving particle effect */
+@keyframes particles {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+.animate-particles {
+  background-image: radial-gradient(rgb(39, 95, 43) 4px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: .2;
+  animation: particles 60s linear infinite;
+}
