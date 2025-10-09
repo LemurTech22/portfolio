@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare } from 'lucide-react';
-import HeroBackground from './components/Hero_Background';
 
 
 export default function Portfolio() {
@@ -42,7 +41,6 @@ export default function Portfolio() {
   };
 
   return (
-     <HeroBackground>
   <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
   {/* Particle overlay */}
   
@@ -248,6 +246,5 @@ export default function Portfolio() {
         </div>
       </footer>
       </div>
-      </HeroBackground>
   );
 }
