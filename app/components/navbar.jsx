@@ -1,60 +1,75 @@
-import React , {useRef} from 'react'
+"use client";
 
-const navbar = () => {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
-    const sidebar = useRef();
+const menuItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/pages/about" },
+  { name: "Projects", href: "/pages/project" },
+  { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
+];
 
-    const openMenu = () => {
-      sidebar.current.style.transform = 'translateX(-16rem)'  
-    }
-    const closeMenu = () => {
-      sidebar.current.style.transform = 'translateX(16rem)'  
-    }
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname(); // to highlight active link
+
   return (
-    <>
-    <div>
-        <p>add gradient Background refer to time 27:00</p>
-    </div>
+    <nav className="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-700">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
+            Portfolio
+          </div>
 
-      <nav className='w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50'>
-        <a href="#top">
-            add image here
-        </a>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-8">
+            {menuItems.map((item) => (
+              <Link key={item.name} href={item.href}>
+                <span
+                  className={`cursor-pointer transition-colors text-white hover:text-emerald-400 ${
+                    pathname === item.href ? "text-emerald-400 font-semibold" : ""
+                  }`}
+                >
+                  {item.name}
+                </span>
+              </Link>
+            ))}
+          </div>
 
-        <ul className='hidden md:flex items-center gap-5 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50'>
-           <li><a className='font-Ovo' href="#Home">Home</a></li>
-           <li><a className='font-Ovo' href="#about">About Me</a></li>
-           <li><a className='font-Ovo' href="#work">My Work</a></li>
-           <li><a className='font-Ovo' href="#contact">Contact Me</a></li> 
-        </ul>
-        <div className='flex items-center gap-4'>
-            <button >
-                add button image refer to time 28:52
-            </button>
-         //  add right image here
-            <a href="#contact">Contact</a>
-            <button className='block md:hidden ml-3' onClick={openMenu}>
-                add black side bar button image refer to time 28:52
-            </button>
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+      </div>
 
-        {/* --------- Mobile Menu --------- */}
-
-        <ul ref={sidebar}className='flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500'>
-           <div>
-                add x button here refer to 34:18
-                Also refer to 37:38
-           </div>
-           <li><a className='font-Ovo' onClick={closeMenu} href="#Home">Home</a></li>
-           <li><a className='font-Ovo' onClick={closeMenu} href="#about">About Me</a></li>
-           <li><a className='font-Ovo' onClick={closeMenu} href="#work">My Work</a></li>
-           <li><a className='font-Ovo' onClick={closeMenu} href="#contact">Contact Me</a></li> 
-        </ul>
-
-
-      </nav>
-    </>
-  )
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-slate-800 border-t border-slate-700">
+          <div className="px-4 py-4 space-y-3">
+            {menuItems.map((item) => (
+              <Link key={item.name} href={item.href}>
+                <span
+                  className={`block w-full text-left py-2 text-white cursor-pointer hover:text-emerald-400 transition-colors ${
+                    pathname === item.href ? "text-emerald-400 font-semibold" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 }
-
-export default navbar

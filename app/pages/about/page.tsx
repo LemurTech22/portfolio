@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare } from 'lucide-react';
-import Navbar from "./components/navbar"
+import Navbar from "../../components/navbar"
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
