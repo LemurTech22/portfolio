@@ -2,6 +2,8 @@
 import React, { useState, useRef } from 'react';
 import { Github, ExternalLink, ChevronDown, Code, Database, Brain, Server, ArrowUp, Linkedin, Mail, MessageSquare } from 'lucide-react';
 import Navbar from '@/app/components/navbar';
+import Footer from '@/app/components/Footer';
+
 
 export default function Projects() {
   const [expandedProjects, setExpandedProjects] = useState({});
@@ -25,20 +27,29 @@ export default function Projects() {
     }, 100);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Check scroll position for "back to top" button
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 500);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Project data structure - you'll fill in the details
+  // Add this useEffect in your Projects component
+    React.useEffect(() => {
+      // Check if there's a hash in the URL
+      const hash = window.location.hash;
+      if (hash) {
+        const projectId = hash.replace('#project-', '');
+        
+        // Wait a bit for the page to render
+        setTimeout(() => {
+          // Auto-expand the accordion
+          setExpandedProjects(prev => ({
+            ...prev,
+            [projectId]: true
+          }));
+          
+          // Scroll to the project
+          const element = document.getElementById(`project-${projectId}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    }, []);
 
   const projects = [
     { id: 'Medical',
@@ -48,8 +59,8 @@ export default function Projects() {
       tagline: 'Brief one-line description of the project',
       techStack: ['React', 'Next.js', 'FastAPI', 'In Development'],
       image: '🚀', // Replace with actual image URL later
-      github: '#',
-      //demo: '#',
+      github: '/pages/project',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -66,8 +77,8 @@ export default function Projects() {
       tagline: 'Brief one-line description of the project',
       techStack: ['React', 'Next.js', 'FastAPI', 'In Development'],
       image: '🚀', // Replace with actual image URL later
-      github: '#',
-      //demo: '#',
+      github: '/pages/project',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -86,7 +97,7 @@ export default function Projects() {
       techStack: ['React', 'Next.js', 'FastAPI', 'PostgreSQL', 'In Development'],
       image: '🚀', // Replace with actual image URL later
       github: '#',
-      //demo: '#',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -103,7 +114,7 @@ export default function Projects() {
       tagline: 'Brief one-line description of the project',
       techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL'],
       image: '📊',
-      github: '#',
+      github: '/pages/project',
       demo: '#',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
@@ -121,8 +132,8 @@ export default function Projects() {
       tagline: 'Brief one-line description of the project',
       techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL'],
       image: '📊',
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/LemurTech22/Chevron-Vehicle-Prediction',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -132,15 +143,15 @@ export default function Projects() {
       }
     },
     {
-      id: 'Urban Safety',
+      id: 'Urban_Safety',
       title: 'Urban Safety Project',
       category: 'datavisual',
       categoryLabel: 'Data Visualization',
       tagline: 'Brief one-line description of the project',
       techStack: ['TensorFlow', 'Python', 'Scikit-learn', 'Keras'],
       image: '🤖',
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/LemurTech22/Urban-Safety-Project',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -150,15 +161,15 @@ export default function Projects() {
       }
     },
     {
-      id: 'Energy Forecast',
-      title: 'Energy Forecast',
+      id: 'Energy_Forecasting',
+      title: 'SmartWatts Energy Forecast',
       category: 'datascience',
       categoryLabel: 'Full Stack',
       tagline: 'Brief one-line description of the project',
       techStack: ['FastAPI', 'React', 'MongoDB', 'Docker'],
       image: '⚡',
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/LemurTech22/COSC-4368-SmartWatt-',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -175,8 +186,8 @@ export default function Projects() {
       tagline: 'Brief one-line description of the project',
       techStack: ['Python', 'NumPy', 'Seaborn', 'Jupyter'],
       image: '📈',
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/LemurTech22/MATH-4323-Statisical-Learning/tree/main/Project',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -193,8 +204,8 @@ export default function Projects() {
       tagline: 'Brief one-line description of the project',
       techStack: ['PyTorch', 'Python', 'CUDA', 'OpenCV'],
       image: '🧠',
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/LemurTech22/Math_4322_Project',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -207,14 +218,12 @@ export default function Projects() {
       id: 'Library',
       title: 'Library Management System',
       category: 'fullstack',
-
       categoryLabel: 'Full Stack',
-      
       tagline: 'Brief one-line description of the project',
       techStack: ['PyTorch', 'Python', 'CUDA', 'OpenCV'],
       image: '🧠',
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/nikkobaez/library-server/tree/nikko',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -227,13 +236,48 @@ export default function Projects() {
 
   const getCategoryColor = (category: string) => {
     switch(category) {
-      case 'fullstack': return 'purple';
-      case 'datascience': return 'emerald';
-      case 'datavisual': return 'blue';
-      case 'indevelopment': return 'red'
-      default: return 'slate';
+      case 'fullstack': return {
+        border: 'border-purple-600/50',
+        text: 'text-purple-400',
+        bg: 'bg-purple-500/20',
+        button: 'bg-purple-600 hover:bg-purple-700',
+        //maybe fix?
+        learn_more_button: 'bg-purple-600 hover:bg-slate-700',
+      };
+      case 'datascience': return {
+        border: 'border-emerald-600/50',
+        text: 'text-emerald-400',
+        bg: 'bg-emerald-500/20',
+        button: 'bg-emerald-600 hover:bg-emerald-700',
+        learn_more_button: 'bg-emerald-600 hover:bg-slate-700',
+
+      };
+      case 'datavisual': return {
+        border: 'border-blue-600/50',
+        text: 'text-blue-400',
+        bg: 'bg-blue-500/20',
+        button: 'bg-blue-600 hover:bg-blue-700',
+        learn_more_button: 'bg-blue-600 hover:bg-slate-700',
+
+      };
+      case 'indevelopment': return {
+        border: 'border-orange-600/50',
+        text: 'text-orange-400',
+        bg: 'bg-orange-500/20',
+        button: 'bg-orange-600 hover:bg-orange-800',
+        //maybe fix?
+        learn_more_button: 'bg-orange-600 hover:bg-slate-700',
+      };
+      default: return {
+        border: 'border-slate-600/50',
+        text: 'text-slate-400',
+        bg: 'bg-slate-500/20',
+        button: 'bg-slate-600 hover:bg-slate-700'
+         
+      };
     }
   };
+
 
   const getCategoryIcon = (category: string) => {
     switch(category) {
@@ -277,10 +321,10 @@ export default function Projects() {
               return (
                 <div
                   key={project.id}
-                  className={`group relative bg-slate-900/40 backdrop-blur-sm rounded-xl border-2 border-${color}-600/50 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-${color}-500/20`}
+                  className={`group relative bg-slate-900/40 backdrop-blur-sm rounded-xl border-2 ${color.border} overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-${color.button}`}
                 >
                   {/* Project Image/Icon */}
-                  <div className={`h-48 bg-gradient-to-br from-${color}-600/20 to-${color}-800/20 flex items-center justify-center text-6xl`}>
+                  <div className={`h-48 bg-gradient-to-br ${color.border} to-${color.bg} flex items-center justify-center text-6xl`}>
                     {project.image}
                   </div>
 
@@ -291,7 +335,7 @@ export default function Projects() {
                       <span className={`text-${color}-400`}>
                         {getCategoryIcon(project.category)}
                       </span>
-                      <span className={`text-sm font-semibold text-${color}-400 uppercase tracking-wider`}>
+                      <span className={`text-sm font-semibold ${color.text} uppercase tracking-wider`}>
                         {project.categoryLabel}
                       </span>
                     </div>
@@ -305,11 +349,11 @@ export default function Projects() {
                     </p>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex text-slate-100 flex-wrap gap-2 mb-6">
                       {project.techStack.map((tech, idx) => (
                         <span
                           key={idx}
-                          className={`px-3 py-1 text-xs font-medium bg-${color}-500/20 text-${color}-300 rounded-full border border-${color}-500/30`}
+                          className={`px-3 py-1 text-xs font-medium ${color.bg} rounded-full border ${color.border}`}
                         >
                           {tech}
                         </span>
@@ -320,7 +364,7 @@ export default function Projects() {
                     <div className="flex gap-3">
                       <button
                         onClick={() => scrollToProject(project.id)}
-                        className={`flex-1 bg-${color}-600 hover:bg-${color}-700 hover:scale-105 text-white px-4 py-2 rounded-lg font-semibold transition-all`}
+                        className={`flex-1 ${color.learn_more_button} hover:scale-105 text-white px-4 py-2 rounded-lg font-semibold transition-all`}
                       >
                         Learn More
                       </button>
@@ -368,7 +412,7 @@ export default function Projects() {
                 <div
                   key={project.id}
                   id={`project-${project.id}`}
-                  className={`border-2 border-${color}-600/50 rounded-lg overflow-hidden bg-slate-900/30 backdrop-blur-sm scroll-mt-24`}
+                  className={`border-2 ${color.border} rounded-lg overflow-hidden bg-slate-900/30 backdrop-blur-sm scroll-mt-24`}
                 >
                   {/* Accordion Header */}
                   <button
@@ -380,7 +424,7 @@ export default function Projects() {
                         {getCategoryIcon(project.category)}
                       </span>
                       <div>
-                        <h3 className={`text-2xl font-bold text-${color}-400`}>
+                        <h3 className={`text-2xl font-bold ${color.text}`}>
                           {project.title}
                         </h3>
                         <p className="text-slate-400 text-sm mt-1">
@@ -389,7 +433,7 @@ export default function Projects() {
                       </div>
                     </div>
                     <ChevronDown
-                      className={`text-${color}-400 transition-transform duration-300 ${
+                      className={`${color.text} transition-transform duration-300 ${
                         expandedProjects[project.id] ? 'rotate-180' : ''
                       }`}
                       size={28}
@@ -405,7 +449,7 @@ export default function Projects() {
                     <div className="px-6 pb-6 space-y-8">
                       {/* Overview */}
                       <div>
-                        <h4 className={`text-xl font-semibold text-${color}-400 mb-3`}>
+                        <h4 className={`text-xl font-semibold ${color.text} mb-3`}>
                           📋 Project Overview
                         </h4>
                         <p className="text-lg text-slate-300 leading-relaxed">
@@ -415,14 +459,14 @@ export default function Projects() {
 
                       {/* Tech Stack */}
                       <div>
-                        <h4 className={`text-xl font-semibold text-${color}-400 mb-3`}>
+                        <h4 className={`text-xl font-semibold ${color.text} mb-3`}>
                           🛠️ Tech Stack
                         </h4>
                         <div className="flex flex-wrap gap-3">
                           {project.techStack.map((tech, idx) => (
                             <span
                               key={idx}
-                              className={`px-4 py-2 text-sm font-medium bg-${color}-500/20 text-${color}-300 rounded-lg border border-${color}-500/30`}
+                              className={`px-4 py-2 text-sm font-medium ${color.bg} ${color.text} rounded-lg border ${color.border}`}
                             >
                               {tech}
                             </span>
@@ -432,7 +476,7 @@ export default function Projects() {
 
                       {/* Challenge */}
                       <div>
-                        <h4 className={`text-xl font-semibold text-${color}-400 mb-3`}>
+                        <h4 className={`text-xl font-semibold ${color.text} mb-3`}>
                           🎯 The Challenge
                         </h4>
                         <p className="text-lg text-slate-300 leading-relaxed">
@@ -442,7 +486,7 @@ export default function Projects() {
 
                       {/* Technical Approach */}
                       <div>
-                        <h4 className={`text-xl font-semibold text-${color}-400 mb-3`}>
+                        <h4 className={`text-xl font-semibold ${color.text} mb-3`}>
                           ⚙️ Technical Approach
                         </h4>
                         <p className="text-lg text-slate-300 leading-relaxed">
@@ -458,7 +502,7 @@ export default function Projects() {
 
                       {/* Results */}
                       <div>
-                        <h4 className={`text-xl font-semibold text-${color}-400 mb-3`}>
+                        <h4 className={`text-xl font-semibold ${color.text} mb-3`}>
                           📊 Results & Impact
                         </h4>
                         <p className="text-lg text-slate-300 leading-relaxed">
@@ -468,7 +512,7 @@ export default function Projects() {
 
                       {/* Lessons Learned */}
                       <div>
-                        <h4 className={`text-xl font-semibold text-${color}-400 mb-3`}>
+                        <h4 className={`text-xl font-semibold ${color.text} mb-3`}>
                           💡 Key Learnings
                         </h4>
                         <p className="text-lg text-slate-300 leading-relaxed">
@@ -482,7 +526,7 @@ export default function Projects() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex items-center gap-2 px-6 py-3 bg-${color}-600 hover:bg-${color}-700 rounded-lg font-semibold transition-all`}
+                          className={`flex items-center gap-2 px-6 py-3 ${color.button} rounded-lg font-semibold transition-all`}
                         >
                           <Github size={20} />
                           View on GitHub
@@ -494,7 +538,7 @@ export default function Projects() {
                           className="flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg font-semibold transition-all"
                         >
                           <ExternalLink size={20} />
-                          Live Demo
+                          Live Demo (Currently in Development)
                         </a>
                       </div>
                     </div>
@@ -505,64 +549,7 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
-
-    {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <MessageSquare className="text-emerald-400" size={32} />
-            <h2 className="text-4xl font-bold">Get In Touch</h2>
-          </div>
-          
-          <p className="text-xl text-slate-300 mb-12">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
-          
-          <div className="flex justify-center gap-6 mb-8">
-            <a 
-              href="https://github.com/LemurTech22" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-700 p-4 rounded-full hover:bg-gray-600 hover:scale-150 transition-all duration-300"
-            >
-              <Github size={24} />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/jose-conde-mlai/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-700 p-4 rounded-full hover:bg-blue-600 hover:scale-150 transition-all duration-300"
-            >
-              <Linkedin size={24} />
-            </a>
-            <a 
-              href="mailto:jose.a.conde@outlook.com" 
-              className="bg-black p-4 rounded-full hover:bg-gray-900 hover:scale-150 transition-all duration-300"
-            >
-              <Mail size={24} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Back to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-2xl transition-all hover:scale-110"
-        >
-          <ArrowUp size={24} />
-        </button>
-      )}
-      
-
-      {/* Footer */}
-      <footer className="relative z-10 py-8 px-4 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <p>&copy; 2025 Jose Conde. Built with Next.js and Tailwind CSS.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

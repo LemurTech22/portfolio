@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link'
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare } from 'lucide-react';
 import Navbar from "./components/navbar"
+import Footer from '@/app/components/Footer';
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,19 +14,19 @@ export default function Portfolio() {
       title: "Energy Forecasting (Currently Reworking)",
       description: "A deep learning project in collaboration with Startup SmartWatts that uses residential energy data and weather information to model and forecast energy consumption patterns.",
       tech: ["Python", "Tableau", "Tensorflow", "Forecasting"],
-      link: "https://github.com/LemurTech22/COSC-4368-SmartWatt-"
+      link: "./pages/project#project-Energy_Forecasting"
     },
     {
-      title: "Library Management",
+      title: "Library Management System",
       description: "ML-powered application that generates marketing content using natural language processing.",
       tech: ["Node.Js", "React", "TypeScript", "MySQL", ],
-      link: "https://github.com/nikkobaez/library-server/tree/nikko"
+      link: "/pages/project#project-Library"
     },
     {
       title: "Urban Safety Project",
       description: "An interactive data visualization project designed to identify and analyze vehicle accident hotspots, helping raise public awareness and guide infrastructure improvements for safer urban environments.",
       tech: ["Python", "Pandas", "Folium", "Seaborn"],
-      link: "https://github.com/LemurTech22/Urban-Safety-Project"
+      link: "/pages/project#project-Urban_Safety"
     }
   ];
 
@@ -61,14 +63,6 @@ export default function Portfolio() {
             <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12">
               I build exceptional digital experiences that combine beautiful design with powerful functionality.
             </p>
-            <div className="flex justify-center gap-4 flex-wrap">
-              <button className="border-2 border-purple-700   text-emerald-500 hover:bg-purple-700 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
-                View My Work
-              </button>
-              <button className="border-2 border-emerald-600 text-purple-400 hover:bg-emerald-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
-                Contact Me
-              </button>
-            </div>
           </div>
         </div>
       </section>
@@ -152,57 +146,22 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
+                
               </div>
+              
             ))}
+              <div className="flex justify-center gap-4 flex-wrap">
+                <Link href='pages/project'>
+                  <button className="border-2 border-purple-700   text-emerald-500 hover:bg-purple-700 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
+                    View My Work
+                  </button>
+                </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <MessageSquare className="text-emerald-400" size={32} />
-            <h2 className="text-4xl font-bold">Get In Touch</h2>
-          </div>
-          
-          <p className="text-xl text-slate-300 mb-12">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
-          
-          <div className="flex justify-center gap-6 mb-8">
-            <a 
-              href="https://github.com/LemurTech22" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-700 p-4 rounded-full hover:bg-gray-600 hover:scale-150 transition-all duration-300"
-            >
-              <Github size={24} />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/jose-conde-mlai/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-700 p-4 rounded-full hover:bg-blue-600 hover:scale-150 transition-all duration-300"
-            >
-              <Linkedin size={24} />
-            </a>
-            <a 
-              href="mailto:jose.a.conde@outlook.com" 
-              className="bg-black p-4 rounded-full hover:bg-gray-900 hover:scale-150 transition-all duration-300"
-            >
-              <Mail size={24} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-4 border-t border-brand-dark">
-        <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <p>&copy; 2025 Jose Conde. Built with Next.js and Tailwind CSS.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

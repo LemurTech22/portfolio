@@ -4,12 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import {images} from '../../assets/assets'
+import Image from 'next/image'
+
 const menuItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/pages/about" },
   { name: "Projects", href: "/pages/project" },
   { name: "Contact", href: "/contact" },
   { name: "Blog", href: "/blog" },
+  { name: "Resume", href: "./Jose_Data_Science_Resume.pdf"}
 ];
 
 export default function Navbar() {
@@ -21,11 +25,19 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
-            Portfolio
-          </div>
+          <Link href='/'>
+          <div className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text">
+            <Image
+            src={images.icon}
+            alt="icon" 
+            width={100} 
+            height={100} 
+            />
 
+          </div>
+        </Link>
           {/* Desktop Menu */}
+          
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <Link key={item.name} href={item.href}>

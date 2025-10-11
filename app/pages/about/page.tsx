@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare, ChevronDown } from 'lucide-react';
+import { Github, ChevronDown} from 'lucide-react';
 import Navbar from "../../components/navbar"
 import Link from "next/link" 
+import Footer from '@/app/components/Footer';
 
 
 export default function About() {
@@ -269,60 +270,19 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
+          
           <h1 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
             Interested in seeing my previous projects?
           </h1>
+          <Link href='/pages/project'>
           <button className="border-2 border-purple-700 text-emerald-500 hover:bg-purple-700 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105">
             View My Work
           </button>
+          </Link>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <MessageSquare className="text-emerald-400" size={32} />
-            <h2 className="text-4xl font-bold">Get In Touch</h2>
-          </div>
-          
-          <p className="text-xl text-slate-300 mb-12">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
-          
-          <div className="flex justify-center gap-6 mb-8">
-            <a 
-              href="https://github.com/LemurTech22" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-700 p-4 rounded-full hover:bg-gray-600 hover:scale-110 transition-all duration-300"
-            >
-              <Github size={24} />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/jose-conde-mlai/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-700 p-4 rounded-full hover:bg-blue-600 hover:scale-110 transition-all duration-300"
-            >
-              <Linkedin size={24} />
-            </a>
-            <a 
-              href="mailto:jose.a.conde@outlook.com" 
-              className="bg-black p-4 rounded-full hover:bg-gray-900 hover:scale-110 transition-all duration-300"
-            >
-              <Mail size={24} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-4 border-t border-[var(--brand-dark)]">
-        <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <p>&copy; 2025 Jose Conde. Built with Next.js and Tailwind CSS.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }
