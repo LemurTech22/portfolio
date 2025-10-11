@@ -1,3 +1,8 @@
-//#import stuff
+import Image from 'next/image'
 
-export const assests={}
+
+//#import stuff
+export const images = {
+  icon: '/pictures/Lemur_Icon.png',
+  profile: "./pictures/linkedin.jpg",
+};

@@ -9,32 +9,31 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration and real-time inventory management.",
-      tech: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-      link: "#"
+      title: "Energy Forecasting (Currently Reworking)",
+      description: "A deep learning project in collaboration with Startup SmartWatts that uses residential energy data and weather information to model and forecast energy consumption patterns.",
+      tech: ["Python", "Tableau", "Tensorflow", "Forecasting"],
+      link: "https://github.com/LemurTech22/COSC-4368-SmartWatt-"
     },
     {
-      title: "AI Content Generator",
+      title: "Library Management",
       description: "ML-powered application that generates marketing content using natural language processing.",
-      tech: ["Python", "React", "TensorFlow", "FastAPI"],
-      link: "#"
+      tech: ["Node.Js", "React", "TypeScript", "MySQL", ],
+      link: "https://github.com/nikkobaez/library-server/tree/nikko"
     },
     {
-      title: "Project Management Tool",
-      description: "Collaborative workspace with real-time updates, task tracking, and team analytics.",
-      tech: ["Vue.js", "Node.js", "Socket.io", "MongoDB"],
-      link: "#"
+      title: "Urban Safety Project",
+      description: "An interactive data visualization project designed to identify and analyze vehicle accident hotspots, helping raise public awareness and guide infrastructure improvements for safer urban environments.",
+      tech: ["Python", "Pandas", "Folium", "Seaborn"],
+      link: "https://github.com/LemurTech22/Urban-Safety-Project"
     }
   ];
 
   const skills = [
     { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { category: "Backend", items: ["Python", "SQL", "FastAPI"] },    
+    { category: "Backend", items: ["Python", "SQL", "FastAPI", "Node.JS"] },    
     { category: "Data Science", items: ["Python", "Pandas", "Scikit-Learn", "PySpark", "TensorFlow", "PyCaret", "Tableau", "Power BI", "Excel", "Julia"] },    
     { category: "Tools", items: ["Git", "Docker", "AWS", "Jenkins", "VS Code", "Postman", "Jupyter Notebook", "Google Colab"] },
   ];
-
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
@@ -73,7 +72,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-``
+
       {/* About Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -130,7 +129,7 @@ export default function Portfolio() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border-2 border-emerald-600 hover:border-slate-500 cursor-pointer"
+                className="rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border-2 border-slate-400 hover:border-emerald-500 cursor-pointer"
               >
                 <div className="flex justify-between items-start mb-4">
                   <Code className="text-emerald-400" size={24} />
@@ -139,7 +138,7 @@ export default function Portfolio() {
                     className="text-slate-400 hover:text-accent transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <ExternalLink size={20} />
+                    <ExternalLink className="hover:text-emerald-400" size={20} />
                   </a>
                 </div>
                 <h3 className="text-xl font-bold mb-3">{project.title}</h3>

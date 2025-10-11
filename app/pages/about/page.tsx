@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare, ChevronDown } from 'lucide-react';
 import Navbar from "../../components/navbar"
 import Link from "next/link" 
-export default function Portfolio() {
+
+
+export default function About() {
   const [expandedSections, setExpandedSections] = useState({
     expertise: false,
     passion: false,
@@ -123,13 +125,14 @@ export default function Portfolio() {
                   
                     <p className="text-lg text-slate-300 leading-relaxed">
                     I currently hold 3 certifications:
+                    </p>
                     <ul className="list-disc ml-12 mt-4 mb-4">
                         
                         <li className="mb-2">NVIDIA: Fundementals of Deep Learning</li>
-                        <li className="mb-2">NVIDIA: Fundementals of Deep Learning</li>
+                        <li className="mb-2">NVIDIA: Fundementals of Accelerated Computing with CUDA C/C++</li>
                         <li className="mb-2">HPEDSI (Known as Hewlett Packard Enterprise Data Science Institute): I currently hold 7 certifications regarding programming languages, like python, Julia, working with Terminal, Data Analysis, Data Retrieval, Machine & Deep Learning</li>
                     </ul> 
-                  </p>
+                 
 
                     <p className="text-lg text-slate-300 leading-relaxed">
                     Part of my next step in my career i am currently working on getting my AWS Cloud Practitioner, and COMPTIA A+ certifications.
