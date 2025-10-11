@@ -35,7 +35,6 @@ export default function Portfolio() {
     { category: "Tools", items: ["Git", "Docker", "AWS", "Jenkins", "VS Code", "Postman", "Jupyter Notebook", "Google Colab"] },
   ];
 
-<<<<<<< HEAD
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
       {/* Particle overlay */}
@@ -47,22 +46,6 @@ export default function Portfolio() {
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-brand/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
       {/*Navigation*/}
-=======
-
-  return (
-
-    
-    <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
-      {/* Particle overlay */}
-      
-      <div className="absolute inset-0 z-0 animate-particles pointer-events-none" />
-
-      {/* Glowing floating blobs */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-brand/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-
-      {/* Navigation */}
->>>>>>> 16a6b6430616bc6c868f91c1e61be256488fa124
       <Navbar/>
 
       {/* Hero Section */}
@@ -89,11 +72,6 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-<<<<<<< HEAD
-
-=======
-``
->>>>>>> 16a6b6430616bc6c868f91c1e61be256488fa124
       {/* About Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -150,11 +128,7 @@ export default function Portfolio() {
             {projects.map((project, index) => (
               <div
                 key={index}
-<<<<<<< HEAD
                 className="rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border-2 border-slate-400 hover:border-emerald-500 cursor-pointer"
-=======
-                className="rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border-2 border-emerald-600 hover:border-slate-500 cursor-pointer"
->>>>>>> 16a6b6430616bc6c868f91c1e61be256488fa124
               >
                 <div className="flex justify-between items-start mb-4">
                   <Code className="text-emerald-400" size={24} />
@@ -163,11 +137,7 @@ export default function Portfolio() {
                     className="text-slate-400 hover:text-accent transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
-<<<<<<< HEAD
                     <ExternalLink className="hover:text-emerald-400" size={20} />
-=======
-                    <ExternalLink size={20} />
->>>>>>> 16a6b6430616bc6c868f91c1e61be256488fa124
                   </a>
                 </div>
                 <h3 className="text-xl font-bold mb-3">{project.title}</h3>
