@@ -1,2 +1,3 @@
 next
 framer-motion
+npm i @vercel/analytics
