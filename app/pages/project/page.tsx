@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import { Github, ExternalLink, ChevronDown, Code, Database, Brain, Server, ArrowUp, Linkedin, Mail, MessageSquare } from 'lucide-react';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/Footer';
+import {images} from '../../../assets/assets'
 
 
 export default function Projects() {
@@ -51,6 +52,8 @@ export default function Projects() {
       }
     }, []);
 
+    //edit icons
+
   const projects = [
     { id: 'Medical',
       title: 'Something Medical',
@@ -58,7 +61,7 @@ export default function Projects() {
       categoryLabel: 'Full Stack',
       tagline: 'Brief one-line description of the project',
       techStack: ['React', 'Next.js', 'FastAPI', 'In Development'],
-      image: '🚀', // Replace with actual image URL later
+      //image: images.pneumonia_img, // Replace with actual image URL later
       github: '/pages/project',
       demo: '/pages/project',
       details: {
@@ -74,9 +77,9 @@ export default function Projects() {
       title: 'Map Navigation',
       category: 'indevelopment',
       categoryLabel: 'Full Stack',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['React', 'Next.js', 'FastAPI', 'In Development'],
-      image: '🚀', // Replace with actual image URL later
+      tagline: 'A Map Navigation app that helps users find and coordinate meeting spots based on real-time distances from their current locations.',
+      techStack: ['Next.js', 'TailwindCSS', 'FastAPI', 'In Development'],
+      //image: '🚀', // Replace with actual image URL later
       github: '/pages/project',
       demo: '/pages/project',
       details: {
@@ -93,9 +96,9 @@ export default function Projects() {
       title: 'Volunteer Management System',
       category: 'indevelopment',
       categoryLabel: 'Full Stack',
-      tagline: 'Brief one-line description of the project',
+      tagline: 'A Volunteer Management app that lets users organize, track, and manage volunteers and events efficiently.',
       techStack: ['React', 'Next.js', 'FastAPI', 'PostgreSQL', 'In Development'],
-      image: '🚀', // Replace with actual image URL later
+      //image: '🚀', // Replace with actual image URL later
       github: '#',
       demo: '/pages/project',
       details: {
@@ -108,14 +111,14 @@ export default function Projects() {
     },
     {
       id: 'Pneumonia',
-      title: 'Pneumonia Detection',
+      title: 'Disease Analysis',
       category: 'datascience',
       categoryLabel: 'Data Science',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL'],
-      image: '📊',
-      github: '/pages/project',
-      demo: '#',
+      tagline: 'A medical imaging project that uses object detection on X-rays to identify and diagnose pneumonia in patients.',
+      techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL', "Tensorflow"],
+      //image: '📊',
+      github: 'https://github.com/LemurTech22/Pneumonia-Project',
+      demo: '/pages/project',
       details: {
         overview: 'Detailed overview of what this project does and why it was built...',
         challenge: 'The main problem or challenge this project addressed...',
@@ -129,9 +132,9 @@ export default function Projects() {
       title: 'Chevron Vehicle Prediction',
       category: 'datascience',
       categoryLabel: 'Data Science',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL'],
-      image: '📊',
+      tagline: 'A predictive analytics project from the Spring 2025 Rice Datathon with Chevron focused on modeling and forecasting future vehicle and fuel technology trends using machine learning.',
+      techStack: ['Python', 'Pandas','Matplotlib', 'Seaborn', 'Scikit-Learn', "Pycaret"],
+      //image: '📊',
       github: 'https://github.com/LemurTech22/Chevron-Vehicle-Prediction',
       demo: '/pages/project',
       details: {
@@ -147,9 +150,9 @@ export default function Projects() {
       title: 'Urban Safety Project',
       category: 'datavisual',
       categoryLabel: 'Data Visualization',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['TensorFlow', 'Python', 'Scikit-learn', 'Keras'],
-      image: '🤖',
+      tagline: 'An interactive data visualization project that analyzes and maps vehicle accident patterns to promote public safety and inform data-driven urban planning decisions.',
+      techStack: ['Python', 'pandas','Matplotlib', 'Seaborn', 'Scikit-Learn', "Folium"],
+      //image: '🤖',
       github: 'https://github.com/LemurTech22/Urban-Safety-Project',
       demo: '/pages/project',
       details: {
@@ -164,10 +167,10 @@ export default function Projects() {
       id: 'Energy_Forecasting',
       title: 'SmartWatts Energy Forecast',
       category: 'datascience',
-      categoryLabel: 'Full Stack',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['FastAPI', 'React', 'MongoDB', 'Docker'],
-      image: '⚡',
+      categoryLabel: 'Data Science',
+      tagline: 'A deep learning project with SmartWatts that models and forecasts residential energy consumption using RNN, LSTM, and GRU architectures on two years of smart meter and weather data.',
+      techStack: ['Python', 'Excel', 'Matplotlib', 'Tensorflow',"Seaborn", "Data Engineering"],
+      //image: '⚡',
       github: 'https://github.com/LemurTech22/COSC-4368-SmartWatt-',
       demo: '/pages/project',
       details: {
@@ -183,9 +186,9 @@ export default function Projects() {
       title: 'Credit Card Fraud Detection',
       category: 'datascience',
       categoryLabel: 'Data Science',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['Python', 'NumPy', 'Seaborn', 'Jupyter'],
-      image: '📈',
+      tagline: 'A machine learning project in R that detects fraudulent transactions using SVM and KNN models with data cleaning, visualization, and performance evaluation.',
+      techStack: ['R', 'Tidyverse', 'corrplot', 'Machine Learning'],
+      //image: '📈',
       github: 'https://github.com/LemurTech22/MATH-4323-Statisical-Learning/tree/main/Project',
       demo: '/pages/project',
       details: {
@@ -201,9 +204,9 @@ export default function Projects() {
       title: 'Student GPA Prediction',
       category: 'datascience',
       categoryLabel: 'Machine Learning',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['PyTorch', 'Python', 'CUDA', 'OpenCV'],
-      image: '🧠',
+      tagline: 'A data-driven study analyzing how college students’ sleep habits influence academic performance using regression and neural network models to predict GPA and identify key sleep-related predictors of success.',
+      techStack: ['R', "TidyVerse", 'Data Visualization', 'Data Engineering'],
+      //image: '🧠',
       github: 'https://github.com/LemurTech22/Math_4322_Project',
       demo: '/pages/project',
       details: {
@@ -219,9 +222,9 @@ export default function Projects() {
       title: 'Library Management System',
       category: 'fullstack',
       categoryLabel: 'Full Stack',
-      tagline: 'Brief one-line description of the project',
-      techStack: ['PyTorch', 'Python', 'CUDA', 'OpenCV'],
-      image: '🧠',
+      tagline: 'A comprehensive library management system that enables students, faculty, and admins to borrow, track, and manage diverse items with unique IDs, borrowing limits, durations, fines, and hold requests through a unified web application.',
+      techStack: ['React', 'TailwindCSS','Node.js', 'MySQL'],
+      //image: '🧠',
       github: 'https://github.com/nikkobaez/library-server/tree/nikko',
       demo: '/pages/project',
       details: {
@@ -381,7 +384,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-4 bg-slate-700 hover:bg-blue-800 hover:scale-125 rounded-lg transition-all"
-                      >
+                      > (in-progress)
                         <ExternalLink size={20} />
                       </a>
                     </div>
@@ -492,12 +495,6 @@ export default function Projects() {
                         <p className="text-lg text-slate-300 leading-relaxed">
                           {project.details.technical}
                         </p>
-                        {/* Add code snippets here later */}
-                        <div className="mt-4 p-4 bg-slate-950/50 rounded-lg border border-slate-700">
-                          <code className="text-emerald-400 text-sm">
-                            // Code snippet placeholder - add your implementation details here
-                          </code>
-                        </div>
                       </div>
 
                       {/* Results */}

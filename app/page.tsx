@@ -18,7 +18,7 @@ export default function Portfolio() {
     },
     {
       title: "Library Management System",
-      description: "Full stack project that allow users to manage, and rent devices, and books.",
+      description: "A comprehensive library management system that enables students, faculty, and admins to borrow, track, and manage diverse items with unique IDs, borrowing limits, durations, fines, and hold requests through a unified web application.",
       tech: ["Node.Js", "React", "Tailwind", "TypeScript", "MySQL" ],
       link: "/pages/project#project-Library"
     },
