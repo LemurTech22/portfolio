@@ -15,7 +15,7 @@ export default function About() {
     orgs: false
   });
 
-  const toggleSection = (section) => {
+  const toggleSection = (section: string) => {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]
