@@ -42,7 +42,7 @@ export default function About() {
             as='h1'
             className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">            
               <h1 >
-              Hi, I'm Jose Conde
+              Hi, I am Jose Conde
             </h1>
             </AnimatedGradientText>
 
@@ -209,7 +209,7 @@ export default function About() {
                   </p>
 
                   <p className="text-lg text-slate-300 leading-relaxed italic border-l-4 border-emerald-500 pl-4">
-                    As a wise man once said, "Those who begin the journey will become the man they dreamt of being."
+                    As a wise man once said, Those who begin the journey will become the man they dreamt of being.
                   </p>
                 </div>
               </div>
