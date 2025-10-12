@@ -16,7 +16,7 @@ const menuItems = [
     //add features for this later
   //{ name: "Contact", href: "/contact" },
   //{ name: "Blog", href: "/blog" },
-  { name: "Resume", href: "./Jose_Data_Science_Resume.pdf"}
+  { name: "Resume", href: "/Jose_Data_Science_Resume.pdf"}
 ];
 
 export default function Navbar() {
