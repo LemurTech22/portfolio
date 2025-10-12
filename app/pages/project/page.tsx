@@ -4,7 +4,7 @@ import { Github, ExternalLink, ChevronDown, Code, Database, Brain, Server, Arrow
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/Footer';
 import {images} from '../../../assets/assets'
-
+import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
 
 export default function Projects() {
   const [expandedProjects, setExpandedProjects] = useState({});
@@ -115,7 +115,7 @@ export default function Projects() {
       category: 'datascience',
       categoryLabel: 'Data Science',
       tagline: 'A medical imaging project that uses object detection on X-rays to identify and diagnose pneumonia in patients.',
-      techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL', "Tensorflow"],
+      techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL', "Tensorflow", "Convolutional Neural Networks"],
       //image: '📊',
       github: 'https://github.com/LemurTech22/Pneumonia-Project',
       demo: '/pages/project',
@@ -138,11 +138,11 @@ export default function Projects() {
       github: 'https://github.com/LemurTech22/Chevron-Vehicle-Prediction',
       demo: '/pages/project',
       details: {
-        overview: 'Detailed overview of what this project does and why it was built...',
-        challenge: 'The main problem or challenge this project addressed...',
-        technical: 'Technical architecture and implementation details...',
-        results: 'Results, metrics, and impact of the project...',
-        learned: 'Key takeaways and lessons learned from this project...'
+        overview: 'We analyzed a dataset of 41,000 vehicle records, focusing on categorical features like fuel type, vehicle category, and fuel technology, with the goal of predicting vehicle and fuel types and estimating future population sizes. To handle missing values, we applied imputation instead of dropping data, and used label encoding to convert categorical features for machine learning. Non-linear patterns in the data led us to apply logarithmic transformations, improving scaling, reducing redundancy, and mitigating overfitting. Using PyCaret to test multiple models, Random Forest emerged as the best performer, achieving 98% R² for regression and 89% accuracy for classification. Our streamlined pipeline, including imputation, robust scaling, and training, ensured reproducibility and efficiency. We are now fine-tuning models for time-based predictions and exploring interactive ways to visualize and share trends in vehicle categories and fuel technologies.',
+        challenge: 'As new sources of fuel emerge for vehicles, what types of fuel can we expect to see in the future? With the rapid rise of electric vehicles, will gasoline and diesel engines eventually become obsolete?',
+        technical: 'Missing Values: Implemented imputation techniques instead of dropping rows to preserve data. Converted to numerical values using label encoding. Non-linear Patterns: Visualizations (box plots, KDE plots) and correlation testing revealed non-linear relationships. Logarithmic transformations were applied to features to improve scaling, reduce redundancy, and mitigate overfitting. Modeling Process Used PyCaret to test and compare multiple machine learning algorithms quickly. Built a streamlined pipeline including: Imputation Scaling using RobustScaler (resilient to outliers).Focused on Random Forest models, which were the best performers for both regression and classification tasks.',
+        results: "So far, our models have performed well in training Regression: 98% R² score.Classification: 89% accuracy. Further testing to fine tune the model.",
+        learned: 'Currently in progress'
       }
     },
     {
@@ -156,11 +156,11 @@ export default function Projects() {
       github: 'https://github.com/LemurTech22/Urban-Safety-Project',
       demo: '/pages/project',
       details: {
-        overview: 'Detailed overview of what this project does and why it was built...',
-        challenge: 'The main problem or challenge this project addressed...',
-        technical: 'Technical architecture and implementation details...',
-        results: 'Results, metrics, and impact of the project...',
-        learned: 'Key takeaways and lessons learned from this project...'
+        overview: 'The Urban Safety Insights project is an interactive data visualization platform designed to identify areas with high concentrations of vehicle accidents, including intersections, highways, regions affected by severe weather, and incidents involving impaired driving. Using a comprehensive dataset from the State of Maryland, we cleaned and standardized over 38 features, removed irrelevant metadata, and addressed inconsistencies in categorical values. Leveraging Python, Pandas, Matplotlib, Seaborn, Scikit-Learn, and Folium, we applied unsupervised learning techniques, experimenting with KMeans and DBSCAN clustering to detect accident hotspots. DBSCAN proved most effective, dynamically identifying dense clusters while handling outliers, which were then plotted on interactive Folium maps for clear spatial visualization. This approach aims to raise public awareness, inform infrastructure improvements, and support proactive safety measures to reduce accidents and enhance urban safety planning.',
+        challenge: 'The Urban Safety Insights project aims to identify accident hotspots and uncover patterns in vehicle collisions to support safer driving, inform infrastructure improvements, and guide data-driven urban planning. By visualizing high-risk areas interactively, it helps reduce accidents and enhance public safety.',
+        technical: 'The project leveraged Python, Pandas, Matplotlib, Seaborn, Scikit-Learn, and Folium to clean, standardize, and analyze a complex accident dataset with 38 features. After removing irrelevant metadata and handling missing values, categorical inconsistencies were resolved through mapping dictionaries. Unsupervised learning methods were applied to detect accident hotspots, with KMeans initially tested but ultimately replaced by DBSCAN due to its ability to handle spatial irregularities and outliers without a predefined number of clusters. The resulting clusters were visualized interactively using Folium, plotting precise accident locations and density-based clusters for intuitive exploration.',
+        results: 'This approach successfully highlighted high-risk zones, providing actionable insights for public safety, infrastructure planning, and proactive accident prevention.',
+        learned: 'I learned about Data Engineering and Cleaning up missing and insconsistent values. Additionally, i learned how to apply clustering algorithms and use the foilum API to generate the interactive map.'
       }
     },
     {
@@ -174,10 +174,10 @@ export default function Projects() {
       github: 'https://github.com/LemurTech22/COSC-4368-SmartWatt-',
       demo: '/pages/project',
       details: {
-        overview: 'Detailed overview of what this project does and why it was built...',
-        challenge: 'The main problem or challenge this project addressed...',
-        technical: 'Technical architecture and implementation details...',
-        results: 'Results, metrics, and impact of the project...',
+        overview: 'This project, completed in collaboration with SmartWatts, analyzed two years of residential energy usage data, totaling approximately 900,000 records collected at 15-minute intervals. The goal was to explore consumption patterns, generate insights, and develop models to forecast future energy demand. A key hypothesis was that temperature significantly influences energy use, particularly during extreme heat events in Texas, prompting integration of historical weather data via the Meteostat API.',
+        challenge: 'In collaboration with a Startup Company named SmartWatts. Our Team goal is to provide insights into their data and provide a actionable solution to present to the company. Our goal was to forecast energy usage with respect to temperature within a 1 month time period.',
+        technical: 'The data was first preprocessed by removing irrelevant features, handling missing values, and scaling to account for outliers. Individual user energy profiles were isolated to train models while testing generalization across different households. Time-series data was prepared to incorporate both energy usage and temperature, which enabled accurate sequential modeling. We trained and evaluated three deep learning architectures—Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM), and Gated Recurrent Units (GRU)—to forecast energy consumption. Model performance was validated by holding out a full month of data and comparing predictions to actual readings, with confidence intervals applied to assess the reliability of the forecasts.',
+        results: 'The LSTM model outperformed the others, achieving 97% accuracy in predicting energy consumption, while forecasts for held-out data matched actual values at approximately 95%. Analysis confirmed that temperature is a primary driver of energy demand, particularly during periods of extreme heat. The project’s modeling pipeline provides reliable forecasts at the individual household level, enabling SmartWatts to optimize energy planning, anticipate peak demand, and inform proactive strategies for managing residential energy usage.',
         learned: 'Key takeaways and lessons learned from this project...'
       }
     },
@@ -224,7 +224,7 @@ export default function Projects() {
       categoryLabel: 'Full Stack',
       tagline: 'A comprehensive library management system that enables students, faculty, and admins to borrow, track, and manage diverse items with unique IDs, borrowing limits, durations, fines, and hold requests through a unified web application.',
       techStack: ['React', 'TailwindCSS','Node.js', 'MySQL'],
-      //image: '🧠',
+      image: '🧠',
       github: 'https://github.com/nikkobaez/library-server/tree/nikko',
       demo: '/pages/project',
       details: {
@@ -293,6 +293,7 @@ export default function Projects() {
   };
 
   return (
+    
     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 text-slate-100 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 z-0 animate-particles pointer-events-none" />
@@ -301,11 +302,15 @@ export default function Projects() {
 
       <Navbar/>
       {/* Hero Section */}
+
       <section className="relative z-10 pt-32 px-4 sm:px-6 lg:px-8 pb-16">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-purple-400 bg-clip-text text-transparent">
+          <AnimatedGradientText 
+            as="h1" 
+            className="text-5xl sm:text-6xl md:text-7xl bg-gradient-to-r font-bold mb-6 from-emerald-400 via-cyan-400 to-purple-400 text-transparent"
+          >
             My Projects
-          </h1>
+          </AnimatedGradientText>
           <p className="text-xl sm:text-2xl text-slate-300 mb-4">
             A showcase of my work in Full Stack Development, Data Science & Machine Learning
           </p>
@@ -400,9 +405,12 @@ export default function Projects() {
       <section ref={accordionRef} className="relative z-10 px-4 sm:px-6 lg:px-8 py-20 bg-slate-950/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-purple-400 bg-clip-text text-transparent">
+
+            <AnimatedGradientText 
+            as='h2'
+            className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-purple-400 bg-clip-text text-transparent">
               Project Deep Dives
-            </h2>
+            </AnimatedGradientText>
             <p className="text-slate-400 text-lg">
               Explore the technical details, challenges, and solutions for each project
             </p>

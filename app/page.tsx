@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare } from 'lucide-react';
 import Navbar from "./components/navbar"
 import Footer from '@/app/components/Footer';
+import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,6 +39,7 @@ export default function Portfolio() {
   ];
 
   return (
+
     <div className="relative min-h-screen bg-gradient-to-br from-[var(--midnight)] via-[var(--brand)] to-[var(--midnight)] text-[var(--accent)] overflow-hidden">
       {/* Particle overlay */}
       
@@ -45,7 +47,7 @@ export default function Portfolio() {
 
       {/* Glowing floating blobs */}
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-brand/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-brand/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
       {/*Navigation*/}
       <Navbar/>
@@ -54,9 +56,13 @@ export default function Portfolio() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
+            <AnimatedGradientText
+            as='h1'
+            className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
+            
               Hi, I'm Jose Conde
-            </h1>
+            
+            </AnimatedGradientText>
             <p className="text-xl sm:text-2xl text-slate-300 mb-8">
               Full Stack Developer & Data Scientist
             </p>

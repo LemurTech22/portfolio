@@ -4,6 +4,7 @@ import { Github, ChevronDown} from 'lucide-react';
 import Navbar from "../../components/navbar"
 import Link from "next/link" 
 import Footer from '@/app/components/Footer';
+import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
 
 
 export default function About() {
@@ -37,9 +38,14 @@ export default function About() {
       <section className="pt-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
+            <AnimatedGradientText
+            as='h1'
+            className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">            
+              <h1 >
               Hi, I'm Jose Conde
             </h1>
+            </AnimatedGradientText>
+
             <p className="text-xl sm:text-2xl text-slate-300 mb-8">
               Full Stack Developer & Data Scientist
             </p>

@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,6 +15,24 @@ export default {
       fontFamily: {
         Outfit: ["Outfit", "sans-serif"],
         Ovo: ["Ovo", "serif"],
+      },
+      animation: {
+        gradient: 'gradient 3s ease infinite',
+        meteor: "meteor var(--duration) var(--delay) ease-in-out infinite",
+      },
+      keyframes: {
+        gradient: {
+          '0%, 100%': {
+            backgroundPosition: '0% 50%',
+          },
+          '50%': {
+            backgroundPosition: '100% 50%',
+          },
+        },
+        meteor: {
+          "0%": { transform: "translateY(-20%) translateX(-50%)" },
+          "100%": { transform: "translateY(300%) translateX(-50%)" },
+        },
       },
     },
   },
