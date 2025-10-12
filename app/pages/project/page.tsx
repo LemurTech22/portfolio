@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useRef } from 'react';
-import { Github, ExternalLink, ChevronDown, Code, Database, Brain, Server, ArrowUp, Linkedin, Mail, MessageSquare } from 'lucide-react';
+import { Github, ExternalLink, ChevronDown, Code, Database, Brain, Server } from 'lucide-react';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/Footer';
-import {images} from '../../../assets/assets'
+//import {images} from '../../../assets/assets'
 import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
 
 export default function Projects() {
-  const [expandedProjects, setExpandedProjects] = useState({});
-  const [showScrollTop, setShowScrollTop] = useState(false);
+  //const [expandedProjects, setExpandedProjects] = useState({});
+  //const [showScrollTop, setShowScrollTop] = useState(false);
   const accordionRef = useRef(null);
 
   const toggleProject = (projectId: string) => {

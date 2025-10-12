@@ -27,7 +27,7 @@ export default function Footer(){
           </div>
           
           <p className="text-xl text-slate-300 mb-12">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
           
           <div className="flex justify-center gap-6 mb-8">

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Github, ChevronDown} from 'lucide-react';
+import { ChevronDown} from 'lucide-react';
 import Navbar from "../../components/navbar"
 import Link from "next/link" 
 import Footer from '@/app/components/Footer';
@@ -61,8 +61,8 @@ export default function About() {
           </div>
           
           <p className="text-center text-lg text-slate-300 mb-12">
-            Hi, I'm Jose Conde — a software developer and data scientist who loves creating technology that's both smart and meaningful.
-            My work lives at the intersection of code, data, and design. I enjoy building full-stack applications that don't just look great, 
+            Hi, I am Jose Conde — a software developer and data scientist who loves creating technology that is both smart and meaningful.
+            My work lives at the intersection of code, data, and design. I enjoy building full-stack applications that do not just look great, 
             but also think — powered by data-driven insights and machine learning models that solve real-world problems. A Jack of All Trades!
           </p>
 
@@ -95,7 +95,7 @@ export default function About() {
                   </p>
                   
                   <p className="text-lg text-slate-300 leading-relaxed">
-                    Whether I'm designing an API, visualizing large datasets, or deploying a predictive model, I specialize in creating 
+                    Whether I am designing an API, visualizing large datasets, or deploying a predictive model, I specialize in creating 
                     actionable solutions that are efficient, scalable, and easy to use.
                   </p>
 
@@ -134,7 +134,7 @@ export default function About() {
                   </p>
                   <span className="text-amber-500 font-semibold"></span>
                   <p className="text-lg text-slate-300 leading-relaxed">
-                    The University of Houston's Memo is <span className="text-amber-500 font-semibold">Get Involved</span> and encouraging to meet new people and value connections to pursue your path.
+                    The University of Houston Memo is <span className="text-amber-500 font-semibold">Get Involved</span> and encouraging to meet new people and value connections to pursue your path.
                     I follow this motto throughout my college career becoming a mentor, or leader helping students getting involved in AI.  
                   </p>
 
@@ -175,7 +175,7 @@ export default function About() {
               >
                 <div className="px-6 pb-6 space-y-6">
                   <p className="text-lg text-slate-300 leading-relaxed">
-                    I'm passionate about continuous learning — exploring everything from AI applications and data visualization to modern 
+                    I am passionate about continuous learning — exploring everything from AI applications and data visualization to modern 
                     front-end frameworks and cloud integration.
                   </p>
                   
@@ -200,7 +200,7 @@ export default function About() {
                   </p>
 
                   <p className="text-lg text-slate-300 leading-relaxed">
-                    When I'm not coding, you'll usually find me brainstorming project ideas, reading about emerging tech, or collaborating 
+                    When I am not coding, you will find me brainstorming project ideas, reading about emerging tech, or collaborating 
                     with other developers on something innovative.
                   </p>
 
@@ -244,7 +244,7 @@ export default function About() {
                     </p>
                     <p className="text-lg text-slate-300 leading-relaxed mt-3">
                       I am a jack of all trades, listening to various artists from different genres so picking my favorite is difficult for me. 
-                      These musicians are some of my favorites — if you're interested in seeing my entire playlist, check out my{' '}
+                      These musicians are some of my favorites — if you are interested in seeing my entire playlist, check out my{' '}
                       <a 
                         href="https://music.youtube.com/channel/UCs2pQxPEFax2uOvVHlgzU1g?si=bYVssop3kADv5wLQ" 
                         target="_blank"
@@ -263,7 +263,7 @@ export default function About() {
                   <div>
                     <h3 className="text-xl font-semibold text-emerald-400 mb-3">✈️ Travel & Culture</h3>
                     <p className="text-lg text-slate-300 leading-relaxed">
-                      I enjoy traveling to new places beyond Texas. I've been to New York, Colorado & Mexico as part of my bucket list! 
+                      I enjoy traveling to new places beyond Texas. I have been to New York, Colorado & Mexico as part of my bucket list! 
                       Places I want to visit: Sweden, Spain, Japan, South Korea, Alaska, California & Venezuela to see the never-ending 
                       storm in Catatumbo. I want to explore the world, learn about different cultures, and gain exposure from people with 
                       various backgrounds!

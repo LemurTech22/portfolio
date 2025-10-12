@@ -1,14 +1,14 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link'
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, MessageSquare } from 'lucide-react';
+import { ExternalLink, Code, Briefcase, User} from 'lucide-react';
 import Navbar from "./components/navbar"
 import Footer from '@/app/components/Footer';
 import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
 
 export default function Portfolio() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  //const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  //const [activeSection, setActiveSection] = useState('home');
 
   const projects = [
     {
@@ -60,7 +60,7 @@ export default function Portfolio() {
             as='h1'
             className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
             
-              Hi, I'm Jose Conde
+              Hi, I am Jose Conde
             
             </AnimatedGradientText>
             <p className="text-xl sm:text-2xl text-slate-300 mb-8">
@@ -86,7 +86,7 @@ export default function Portfolio() {
                 Passionate developer with experience in web development and machine learning, committed to creating innovative, real-world solutions.
               </p>
               <p className="text-slate-300 text-lg leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
+                When I am not coding, you will find me exploring new technologies, contributing to open-source 
                 projects, or sharing knowledge with the developer community.
               </p>
             </div>
