@@ -11,21 +11,21 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "Energy Forecasting (Currently Reworking)",
+      title: "Energy Forecasting",
       description: "A deep learning project in collaboration with Startup SmartWatts that uses residential energy data and weather information to model and forecast energy consumption patterns.",
-      tech: ["Python", "Tableau", "Tensorflow", "Forecasting"],
+      tech: ["Python", "Numpy", "Seaborn/Matplotlib", "Tensorflow", "Forecasting"],
       link: "./pages/project#project-Energy_Forecasting"
     },
     {
       title: "Library Management System",
-      description: "ML-powered application that generates marketing content using natural language processing.",
-      tech: ["Node.Js", "React", "TypeScript", "MySQL", ],
+      description: "Full stack project that allow users to manage, and rent devices, and books.",
+      tech: ["Node.Js", "React", "Tailwind", "TypeScript", "MySQL" ],
       link: "/pages/project#project-Library"
     },
     {
       title: "Urban Safety Project",
       description: "An interactive data visualization project designed to identify and analyze vehicle accident hotspots, helping raise public awareness and guide infrastructure improvements for safer urban environments.",
-      tech: ["Python", "Pandas", "Folium", "Seaborn"],
+      tech: ["Python", "Pandas", "Seaborn", "Folium"],
       link: "/pages/project#project-Urban_Safety"
     }
   ];
@@ -61,7 +61,7 @@ export default function Portfolio() {
               Full Stack Developer & Data Scientist
             </p>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12">
-              I build exceptional digital experiences that combine beautiful design with powerful functionality.
+            I’m a passionate developer specializing in AI and software development, driven by leadership, innovation, and a growth mindset.
             </p>
           </div>
         </div>
@@ -77,8 +77,7 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                I'm a passionate developer with 5+ years of experience building web applications. 
-                I specialize in creating scalable, user-friendly solutions that solve real-world problems.
+                Passionate developer with experience in web development and machine learning, committed to creating innovative, real-world solutions.
               </p>
               <p className="text-slate-300 text-lg leading-relaxed">
                 When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
@@ -150,9 +149,9 @@ export default function Portfolio() {
               </div>
               
             ))}
-              <div className="flex justify-center gap-4 flex-wrap">
+              <div className="flex gap-4 flex-wrap">
                 <Link href='pages/project'>
-                  <button className="border-2 border-purple-700   text-emerald-500 hover:bg-purple-700 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
+                  <button className="border-2 border-purple-700 justify-center text-emerald-500 hover:bg-purple-700 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
                     View My Work
                   </button>
                 </Link>

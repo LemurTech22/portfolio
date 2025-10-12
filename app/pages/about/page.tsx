@@ -10,7 +10,8 @@ export default function About() {
   const [expandedSections, setExpandedSections] = useState({
     expertise: false,
     passion: false,
-    journey: false
+    journey: false,
+    orgs: false
   });
 
   const toggleSection = (section) => {
@@ -56,7 +57,7 @@ export default function About() {
           <p className="text-center text-lg text-slate-300 mb-12">
             Hi, I'm Jose Conde — a software developer and data scientist who loves creating technology that's both smart and meaningful.
             My work lives at the intersection of code, data, and design. I enjoy building full-stack applications that don't just look great, 
-            but also think — powered by data-driven insights and machine learning models that solve real-world problems.
+            but also think — powered by data-driven insights and machine learning models that solve real-world problems. A Jack of All Trades!
           </p>
 
           {/* Accordion Sections */}
@@ -95,6 +96,54 @@ export default function About() {
                   <p className="text-lg text-slate-300 leading-relaxed">
                     Developing projects for Chevron, startup companies, and helping the government, I am passionate about taking up any 
                     tasks for the opportunity to learn and develop not only as a developer but as a human being.
+                  </p>
+                  <p className="text-lg text-slate-300 leading-relaxed">
+                    Before attending the University of Houston in 2023, I worked as a IT Assistant at Wharton County Junior, gaining knowledge of Computer Systems, diagnosing to students & Faculty around the campus.  
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Student Involvment */}
+            <div className="border-2 border-amber-600/50 rounded-lg overflow-hidden bg-slate-900/30 backdrop-blur-sm">
+              <button
+                onClick={() => toggleSection('orgs')}
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-slate-800/50 transition-colors"
+              >
+                <h2 className="text-2xl font-bold text-amber-500">Creating Community</h2>
+                <ChevronDown 
+                  className={`text-amber-500 transition-transform duration-300 ${expandedSections.orgs ? 'rotate-180' : ''}`} 
+                  size={28} 
+                />
+              </button>
+              
+              <div 
+                className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                  expandedSections.orgs ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-6">
+                  <p className="text-lg text-slate-300 leading-relaxed">
+
+                  </p>
+                  <span className="text-amber-500 font-semibold"></span>
+                  <p className="text-lg text-slate-300 leading-relaxed">
+                    The University of Houston's Memo is <span className="text-amber-500 font-semibold">Get Involved</span> and encouraging to meet new people and value connections to pursue your path.
+                    I follow this motto throughout my college career becoming a mentor, or leader helping students getting involved in AI.  
+                  </p>
+
+                  <p className="text-lg text-slate-300 leading-relaxed">
+                    As President of CougarAI, I lead a community where students connect their curiosity for artificial intelligence with hands-on experience through research, workshops, and company partnerships. 
+                    CougarAI was where I first found my passion for AI, and now I’m dedicated to giving others that same chance to learn, create, and grow.
+                  </p>
+                  <p className="text-lg text-slate-300 leading-relaxed">
+                    As a Coog Challengers Mentor, I provide academic, professional, and personal support to first-generation students at the University of Houston. Drawing from my own experience as a first-generation student, I guide mentees through challenges such as campus involvement, career exploration, and academic planning.
+
+
+                  </p>
+                  <p className="text-lg text-slate-300 leading-relaxed">
+                  My mentorship focuses on helping students identify growth opportunities—whether through leadership roles, internships, or student organizations—and empowering them to pursue these with confidence. 
+                  Through one-on-one mentorship and group engagement, I aim to cultivate a sense of belonging, motivation, and self-efficacy within the first-generation community.
                   </p>
                 </div>
               </div>
