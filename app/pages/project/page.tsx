@@ -3,22 +3,53 @@ import React, { useState, useRef } from 'react';
 import { Github, ExternalLink, ChevronDown, Code, Database, Brain, Server } from 'lucide-react';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/Footer';
-//import {images} from '../../../assets/assets'
 import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
 
+// Define ProjectID type at the top level
+type ProjectID = 
+  | 'Medical'
+  | 'Map Navigation'
+  | 'Volunteer Management System'
+  | 'Pneumonia'
+  | 'Chevron'
+  | 'Urban_Safety'
+  | 'Energy_Forecasting'
+  | 'Credit Card Fraud Detection'
+  | 'Student GPA Prediction'
+  | 'Library';
+
+// Define project type
+interface Project {
+  id: ProjectID;
+  title: string;
+  category: string;
+  categoryLabel: string;
+  tagline: string;
+  techStack: string[];
+  image?: string;
+  github: string;
+  demo: string;
+  details: {
+    overview: string;
+    challenge: string;
+    technical: string;
+    results: string;
+    learned: string;
+  };
+}
+
 export default function Projects() {
-  //const [expandedProjects, setExpandedProjects] = useState({});
-  //const [showScrollTop, setShowScrollTop] = useState(false);
+  const [expandedProjects, setExpandedProjects] = useState<Partial<Record<ProjectID, boolean>>>({});
   const accordionRef = useRef(null);
 
-  const toggleProject = (projectId: string) => {
+  const toggleProject = (projectId: ProjectID) => {
     setExpandedProjects(prev => ({
       ...prev,
-      [projectId]: !prev[projectId]
+      [projectId]: !prev[projectId],
     }));
   };
 
-  const scrollToProject = (projectId: string) => {
+  const scrollToProject = (projectId: ProjectID) => {
     toggleProject(projectId);
     setTimeout(() => {
       const element = document.getElementById(`project-${projectId}`);
@@ -28,40 +59,43 @@ export default function Projects() {
     }, 100);
   };
 
-  // Add this useEffect in your Projects component
-    React.useEffect(() => {
-      // Check if there's a hash in the URL
-      const hash = window.location.hash;
-      if (hash) {
-        const projectId = hash.replace('#project-', '');
-        
-        // Wait a bit for the page to render
+  function isProjectID(id: string): id is ProjectID {
+    return [
+      'Medical', 'Map Navigation', 'Volunteer Management System', 'Pneumonia', 
+      'Chevron', 'Urban_Safety', 'Energy_Forecasting', 
+      'Credit Card Fraud Detection', 'Student GPA Prediction', 'Library'
+    ].includes(id);
+  }
+
+  React.useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const rawId = hash.replace('#project-', '');
+      if (isProjectID(rawId)) {
+        const projectId = rawId;
+
+        setExpandedProjects(prev => ({
+          ...prev,
+          [projectId]: true,
+        }));
+
         setTimeout(() => {
-          // Auto-expand the accordion
-          setExpandedProjects(prev => ({
-            ...prev,
-            [projectId]: true
-          }));
-          
-          // Scroll to the project
           const element = document.getElementById(`project-${projectId}`);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+          if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
       }
-    }, []);
+    }
+  }, []);
 
-    //edit icons
-
-  const projects = [
-    { id: 'Medical',
+  // Properly typed projects array
+  const projects: Project[] = [
+    { 
+      id: 'Medical' as ProjectID,
       title: 'Something Medical',
       category: 'indevelopment',
       categoryLabel: 'Full Stack',
       tagline: 'Brief one-line description of the project',
       techStack: ['React', 'Next.js', 'FastAPI', 'In Development'],
-      //image: images.pneumonia_img, // Replace with actual image URL later
       github: '/pages/project',
       demo: '/pages/project',
       details: {
@@ -73,13 +107,13 @@ export default function Projects() {
       }
     },
 
-    { id: 'Map Navigation',
+    { 
+      id: 'Map Navigation' as ProjectID,
       title: 'Map Navigation',
       category: 'indevelopment',
       categoryLabel: 'Full Stack',
       tagline: 'A Map Navigation app that helps users find and coordinate meeting spots based on real-time distances from their current locations.',
       techStack: ['Next.js', 'TailwindCSS', 'FastAPI', 'In Development'],
-      //image: '🚀', // Replace with actual image URL later
       github: '/pages/project',
       demo: '/pages/project',
       details: {
@@ -92,13 +126,12 @@ export default function Projects() {
     },
         
     {
-      id: 'Volunteer Management System',
+      id: 'Volunteer Management System' as ProjectID,
       title: 'Volunteer Management System',
       category: 'indevelopment',
       categoryLabel: 'Full Stack',
       tagline: 'A Volunteer Management app that lets users organize, track, and manage volunteers and events efficiently.',
       techStack: ['React', 'Next.js', 'FastAPI', 'PostgreSQL', 'In Development'],
-      //image: '🚀', // Replace with actual image URL later
       github: '#',
       demo: '/pages/project',
       details: {
@@ -110,13 +143,12 @@ export default function Projects() {
       }
     },
     {
-      id: 'Pneumonia',
+      id: 'Pneumonia' as ProjectID,
       title: 'Disease Analysis',
       category: 'datascience',
       categoryLabel: 'Data Science',
       tagline: 'A medical imaging project that uses object detection on X-rays to identify and diagnose pneumonia in patients.',
-      techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL', "Tensorflow", "Convolutional Neural Networks"],
-      //image: '📊',
+      techStack: ['Python', 'Pandas', 'Matplotlib', 'SQL', 'Tensorflow', 'Convolutional Neural Networks'],
       github: 'https://github.com/LemurTech22/Pneumonia-Project',
       demo: '/pages/project',
       details: {
@@ -128,31 +160,29 @@ export default function Projects() {
       }
     },
     {
-      id: 'Chevron',
+      id: 'Chevron' as ProjectID,
       title: 'Chevron Vehicle Prediction',
       category: 'datascience',
       categoryLabel: 'Data Science',
       tagline: 'A predictive analytics project from the Spring 2025 Rice Datathon with Chevron focused on modeling and forecasting future vehicle and fuel technology trends using machine learning.',
-      techStack: ['Python', 'Pandas','Matplotlib', 'Seaborn', 'Scikit-Learn', "Pycaret"],
-      //image: '📊',
+      techStack: ['Python', 'Pandas','Matplotlib', 'Seaborn', 'Scikit-Learn', 'Pycaret'],
       github: 'https://github.com/LemurTech22/Chevron-Vehicle-Prediction',
       demo: '/pages/project',
       details: {
         overview: 'We analyzed a dataset of 41,000 vehicle records, focusing on categorical features like fuel type, vehicle category, and fuel technology, with the goal of predicting vehicle and fuel types and estimating future population sizes. To handle missing values, we applied imputation instead of dropping data, and used label encoding to convert categorical features for machine learning. Non-linear patterns in the data led us to apply logarithmic transformations, improving scaling, reducing redundancy, and mitigating overfitting. Using PyCaret to test multiple models, Random Forest emerged as the best performer, achieving 98% R² for regression and 89% accuracy for classification. Our streamlined pipeline, including imputation, robust scaling, and training, ensured reproducibility and efficiency. We are now fine-tuning models for time-based predictions and exploring interactive ways to visualize and share trends in vehicle categories and fuel technologies.',
         challenge: 'As new sources of fuel emerge for vehicles, what types of fuel can we expect to see in the future? With the rapid rise of electric vehicles, will gasoline and diesel engines eventually become obsolete?',
         technical: 'Missing Values: Implemented imputation techniques instead of dropping rows to preserve data. Converted to numerical values using label encoding. Non-linear Patterns: Visualizations (box plots, KDE plots) and correlation testing revealed non-linear relationships. Logarithmic transformations were applied to features to improve scaling, reduce redundancy, and mitigate overfitting. Modeling Process Used PyCaret to test and compare multiple machine learning algorithms quickly. Built a streamlined pipeline including: Imputation Scaling using RobustScaler (resilient to outliers).Focused on Random Forest models, which were the best performers for both regression and classification tasks.',
-        results: "So far, our models have performed well in training Regression: 98% R² score.Classification: 89% accuracy. Further testing to fine tune the model.",
+        results: 'So far, our models have performed well in training Regression: 98% R² score.Classification: 89% accuracy. Further testing to fine tune the model.',
         learned: 'Currently in progress'
       }
     },
     {
-      id: 'Urban_Safety',
+      id: 'Urban_Safety' as ProjectID,
       title: 'Urban Safety Project',
       category: 'datavisual',
       categoryLabel: 'Data Visualization',
       tagline: 'An interactive data visualization project that analyzes and maps vehicle accident patterns to promote public safety and inform data-driven urban planning decisions.',
-      techStack: ['Python', 'pandas','Matplotlib', 'Seaborn', 'Scikit-Learn', "Folium"],
-      //image: '🤖',
+      techStack: ['Python', 'pandas','Matplotlib', 'Seaborn', 'Scikit-Learn', 'Folium'],
       github: 'https://github.com/LemurTech22/Urban-Safety-Project',
       demo: '/pages/project',
       details: {
@@ -164,31 +194,29 @@ export default function Projects() {
       }
     },
     {
-      id: 'Energy_Forecasting',
+      id: 'Energy_Forecasting' as ProjectID,
       title: 'SmartWatts Energy Forecast',
       category: 'datascience',
       categoryLabel: 'Data Science',
       tagline: 'A deep learning project with SmartWatts that models and forecasts residential energy consumption using RNN, LSTM, and GRU architectures on two years of smart meter and weather data.',
-      techStack: ['Python', 'Excel', 'Matplotlib', 'Tensorflow',"Seaborn", "Data Engineering"],
-      //image: '⚡',
+      techStack: ['Python', 'Excel', 'Matplotlib', 'Tensorflow','Seaborn', 'Data Engineering'],
       github: 'https://github.com/LemurTech22/COSC-4368-SmartWatt-',
       demo: '/pages/project',
       details: {
         overview: 'This project, completed in collaboration with SmartWatts, analyzed two years of residential energy usage data, totaling approximately 900,000 records collected at 15-minute intervals. The goal was to explore consumption patterns, generate insights, and develop models to forecast future energy demand. A key hypothesis was that temperature significantly influences energy use, particularly during extreme heat events in Texas, prompting integration of historical weather data via the Meteostat API.',
         challenge: 'In collaboration with a Startup Company named SmartWatts. Our Team goal is to provide insights into their data and provide a actionable solution to present to the company. Our goal was to forecast energy usage with respect to temperature within a 1 month time period.',
         technical: 'The data was first preprocessed by removing irrelevant features, handling missing values, and scaling to account for outliers. Individual user energy profiles were isolated to train models while testing generalization across different households. Time-series data was prepared to incorporate both energy usage and temperature, which enabled accurate sequential modeling. We trained and evaluated three deep learning architectures—Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM), and Gated Recurrent Units (GRU)—to forecast energy consumption. Model performance was validated by holding out a full month of data and comparing predictions to actual readings, with confidence intervals applied to assess the reliability of the forecasts.',
-        results: 'The LSTM model outperformed the others, achieving 97% accuracy in predicting energy consumption, while forecasts for held-out data matched actual values at approximately 95%. Analysis confirmed that temperature is a primary driver of energy demand, particularly during periods of extreme heat. The project’s modeling pipeline provides reliable forecasts at the individual household level, enabling SmartWatts to optimize energy planning, anticipate peak demand, and inform proactive strategies for managing residential energy usage.',
+        results: 'The LSTM model outperformed the others, achieving 97% accuracy in predicting energy consumption, while forecasts for held-out data matched actual values at approximately 95%. Analysis confirmed that temperature is a primary driver of energy demand, particularly during periods of extreme heat. The project\'s modeling pipeline provides reliable forecasts at the individual household level, enabling SmartWatts to optimize energy planning, anticipate peak demand, and inform proactive strategies for managing residential energy usage.',
         learned: 'Key takeaways and lessons learned from this project...'
       }
     },
     {
-      id: 'Credit Card Fraud Detection',
+      id: 'Credit Card Fraud Detection' as ProjectID,
       title: 'Credit Card Fraud Detection',
       category: 'datascience',
       categoryLabel: 'Data Science',
       tagline: 'A machine learning project in R that detects fraudulent transactions using SVM and KNN models with data cleaning, visualization, and performance evaluation.',
       techStack: ['R', 'Tidyverse', 'corrplot', 'Machine Learning'],
-      //image: '📈',
       github: 'https://github.com/LemurTech22/MATH-4323-Statisical-Learning/tree/main/Project',
       demo: '/pages/project',
       details: {
@@ -200,13 +228,12 @@ export default function Projects() {
       }
     },
     {
-      id: 'Student GPA Prediction',
+      id: 'Student GPA Prediction' as ProjectID,
       title: 'Student GPA Prediction',
       category: 'datascience',
       categoryLabel: 'Machine Learning',
-      tagline: 'A data-driven study analyzing how college students’ sleep habits influence academic performance using regression and neural network models to predict GPA and identify key sleep-related predictors of success.',
-      techStack: ['R', "TidyVerse", 'Data Visualization', 'Data Engineering'],
-      //image: '🧠',
+      tagline: 'A data-driven study analyzing how college students\' sleep habits influence academic performance using regression and neural network models to predict GPA and identify key sleep-related predictors of success.',
+      techStack: ['R', 'TidyVerse', 'Data Visualization', 'Data Engineering'],
       github: 'https://github.com/LemurTech22/Math_4322_Project',
       demo: '/pages/project',
       details: {
@@ -215,10 +242,10 @@ export default function Projects() {
         technical: 'Technical architecture and implementation details...',
         results: 'Results, metrics, and impact of the project...',
         learned: 'Key takeaways and lessons learned from this project...'
-        }
-      },
-      {
-      id: 'Library',
+      }
+    },
+    {
+      id: 'Library' as ProjectID,
       title: 'Library Management System',
       category: 'fullstack',
       categoryLabel: 'Full Stack',
@@ -244,7 +271,6 @@ export default function Projects() {
         text: 'text-purple-400',
         bg: 'bg-purple-500/20',
         button: 'bg-purple-600 hover:bg-purple-700',
-        //maybe fix?
         learn_more_button: 'bg-purple-600 hover:bg-slate-700',
       };
       case 'datascience': return {
@@ -253,7 +279,6 @@ export default function Projects() {
         bg: 'bg-emerald-500/20',
         button: 'bg-emerald-600 hover:bg-emerald-700',
         learn_more_button: 'bg-emerald-600 hover:bg-slate-700',
-
       };
       case 'datavisual': return {
         border: 'border-blue-600/50',
@@ -261,39 +286,34 @@ export default function Projects() {
         bg: 'bg-blue-500/20',
         button: 'bg-blue-600 hover:bg-blue-700',
         learn_more_button: 'bg-blue-600 hover:bg-slate-700',
-
       };
       case 'indevelopment': return {
         border: 'border-orange-600/50',
         text: 'text-orange-400',
         bg: 'bg-orange-500/20',
         button: 'bg-orange-600 hover:bg-orange-800',
-        //maybe fix?
         learn_more_button: 'bg-orange-600 hover:bg-slate-700',
       };
       default: return {
         border: 'border-slate-600/50',
         text: 'text-slate-400',
         bg: 'bg-slate-500/20',
-        button: 'bg-slate-600 hover:bg-slate-700'
-         
+        button: 'bg-slate-600 hover:bg-slate-700',
+        learn_more_button: 'bg-slate-600 hover:bg-slate-700',
       };
     }
   };
-
 
   const getCategoryIcon = (category: string) => {
     switch(category) {
       case 'fullstack': return <Code size={20} />;
       case 'datascience': return <Database size={20} />;
       case 'datavisual': return <Brain size={20} />;
-      
       default: return <Server size={20} />;
     }
   };
 
   return (
-    
     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 text-slate-100 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 z-0 animate-particles pointer-events-none" />
@@ -301,8 +321,8 @@ export default function Projects() {
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
       <Navbar/>
-      {/* Hero Section */}
 
+      {/* Hero Section */}
       <section className="relative z-10 pt-32 px-4 sm:px-6 lg:px-8 pb-16">
         <div className="max-w-7xl mx-auto text-center">
           <AnimatedGradientText 
@@ -329,10 +349,10 @@ export default function Projects() {
               return (
                 <div
                   key={project.id}
-                  className={`group relative bg-slate-900/40 backdrop-blur-sm rounded-xl border-2 ${color.border} overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-${color.button}`}
+                  className={`group relative bg-slate-900/40 backdrop-blur-sm rounded-xl border-2 ${color.border} overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl`}
                 >
                   {/* Project Image/Icon */}
-                  <div className={`h-48 bg-gradient-to-br ${color.border} to-${color.bg} flex items-center justify-center text-6xl`}>
+                  <div className={`h-48 bg-gradient-to-br ${color.border} flex items-center justify-center text-6xl`}>
                     {project.image}
                   </div>
 
@@ -340,7 +360,7 @@ export default function Projects() {
                   <div className="p-6">
                     {/* Category Badge */}
                     <div className="flex items-center gap-2 mb-3">
-                      <span className={`text-${color}-400`}>
+                      <span className={color.text}>
                         {getCategoryIcon(project.category)}
                       </span>
                       <span className={`text-sm font-semibold ${color.text} uppercase tracking-wider`}>
@@ -389,7 +409,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-4 bg-slate-700 hover:bg-blue-800 hover:scale-125 rounded-lg transition-all"
-                      > (in-progress)
+                      >
                         <ExternalLink size={20} />
                       </a>
                     </div>
@@ -405,10 +425,10 @@ export default function Projects() {
       <section ref={accordionRef} className="relative z-10 px-4 sm:px-6 lg:px-8 py-20 bg-slate-950/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-
             <AnimatedGradientText 
-            as='h2'
-            className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-purple-400 bg-clip-text text-transparent">
+              as='h2'
+              className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-purple-400 bg-clip-text text-transparent"
+            >
               Project Deep Dives
             </AnimatedGradientText>
             <p className="text-slate-400 text-lg">
@@ -431,7 +451,7 @@ export default function Projects() {
                     className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-800/50 transition-colors"
                   >
                     <div className="flex items-center gap-4">
-                      <span className={`text-${color}-400`}>
+                      <span className={color.text}>
                         {getCategoryIcon(project.category)}
                       </span>
                       <div>

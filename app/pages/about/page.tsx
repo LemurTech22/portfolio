@@ -14,8 +14,8 @@ export default function About() {
     journey: false,
     orgs: false
   });
-
-  const toggleSection = (section: string) => {
+  type SectionKey = 'expertise' | 'passion' | 'journey' | 'orgs';
+  const toggleSection = (section: SectionKey) => {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]
