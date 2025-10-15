@@ -1,42 +1,15 @@
 "use client";
 import React from 'react';
-import Link from 'next/link'
-import { ExternalLink, Code, Briefcase, User} from 'lucide-react';
 import Navbar from "./components/navbar"
 import Footer from '@/app/components/Footer';
-import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
+import HeroSection from './components/homeComponents/Hero_Section';
+import AboutMe from './components/homeComponents/AboutMe';
+import Featured_Projects from './components/homeComponents/Featured_Projects';
 
 export default function Portfolio() {
   //const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   //const [activeSection, setActiveSection] = useState('home');
 
-  const projects = [
-    {
-      title: "Energy Forecasting",
-      description: "A deep learning project in collaboration with Startup SmartWatts that uses residential energy data and weather information to model and forecast energy consumption patterns.",
-      tech: ["Python", "Numpy", "Seaborn/Matplotlib", "Tensorflow", "Forecasting"],
-      link: "./pages/project#project-Energy_Forecasting"
-    },
-    {
-      title: "Library Management System",
-      description: "A comprehensive library management system that enables students, faculty, and admins to borrow, track, and manage diverse items with unique IDs, borrowing limits, durations, fines, and hold requests through a unified web application.",
-      tech: ["Node.Js", "React", "Tailwind", "TypeScript", "MySQL" ],
-      link: "/pages/project#project-Library"
-    },
-    {
-      title: "Urban Safety Project",
-      description: "An interactive data visualization project designed to identify and analyze vehicle accident hotspots, helping raise public awareness and guide infrastructure improvements for safer urban environments.",
-      tech: ["Python", "Pandas", "Seaborn", "Folium"],
-      link: "/pages/project#project-Urban_Safety"
-    }
-  ];
-
-  const skills = [
-    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { category: "Backend", items: ["Python", "SQL", "FastAPI", "Node.JS"] },    
-    { category: "Data Science", items: ["Python", "Pandas", "Scikit-Learn", "PySpark", "TensorFlow", "PyCaret", "Tableau", "Power BI", "Excel", "Julia"] },    
-    { category: "Tools", items: ["Git", "Docker", "AWS", "Jenkins", "VS Code", "Postman", "Jupyter Notebook", "Google Colab"] },
-  ];
 
   return (
 
@@ -53,118 +26,12 @@ export default function Portfolio() {
       <Navbar/>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center">
-            <AnimatedGradientText
-            as='h1'
-            className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-purple-300 bg-clip-text text-transparent">
-            
-              Hi, I am Jose Conde
-            
-            </AnimatedGradientText>
-            <p className="text-xl sm:text-2xl text-slate-300 mb-8">
-              Full Stack Developer & Data Scientist
-            </p>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12">
-            I’m a passionate developer specializing in AI and software development, driven by leadership, innovation, and a growth mindset.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection/>
       {/* About Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-12">
-            <User className="text-emerald-300" size={32} />
-            <h2 className="text-4xl font-bold">About Me</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                Passionate developer with experience in web development and machine learning, committed to creating innovative, real-world solutions.
-              </p>
-              <p className="text-slate-300 text-lg leading-relaxed">
-                When I am not coding, you will find me exploring new technologies, contributing to open-source 
-                projects, or sharing knowledge with the developer community.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-accent">Skills & Technologies</h3>
-              <div className="space-y-4">
-                {skills.map((skillGroup) => (
-                  <div key={skillGroup.category}>
-                    <h4 className="font-semibold text-slate-300 mb-2">{skillGroup.category}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skillGroup.items.map((skill) => (
-                        <span
-                          key={skill}
-                          className="bg-slate-900 text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-accent hover:text-white transition-colors cursor-default"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutMe/>
 
       {/* Projects Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-12">
-            <Briefcase className="text-emerald-400" size={32} />
-            <h2 className="text-4xl font-bold">Featured Projects</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border-2 border-slate-400 hover:border-emerald-500 cursor-pointer"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <Code className="text-emerald-400" size={24} />
-                  <a 
-                    href={project.link} 
-                    className="text-slate-400 hover:text-accent transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink className="hover:text-emerald-400" size={20} />
-                  </a>
-                </div>
-                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                <p className="text-slate-400 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs bg-gray-900 px-2 py-1 rounded text-purple-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-              </div>
-              
-            ))}
-              <div className="flex gap-4 flex-wrap">
-                <Link href='pages/project'>
-                  <button className="border-2 border-purple-700 justify-center text-emerald-500 hover:bg-purple-700 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all">
-                    View My Work
-                  </button>
-                </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Featured_Projects/>
 
       <Footer/>
     </div>
