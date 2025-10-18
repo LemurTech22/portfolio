@@ -1,8 +1,6 @@
 // AnimatedTabs.tsx
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useRef, useEffect } from "react";
+import {Link, usePathname, useState, useRef, useEffect} from '@/app/resources_index'
 
 interface MenuItem {
   name: string;

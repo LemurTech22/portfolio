@@ -1,14 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/Footer";
-import HeroSection from "@/app/components/AboutMeComponents/Hero_Section";
-import ExpertiseSection from "@/app/components/AboutMeComponents/technical_expertise";
-import CommunitySection from "@/app/components/AboutMeComponents/CreatingCommunity";
-import JourneySection from "@/app/components/AboutMeComponents/JourneySection";
-import PassionSection from "@/app/components/AboutMeComponents/PassionSection";
-import AboutIntro from "@/app/components/AboutMeComponents/AboutIntro";
-import MoreProjects from '@/app/components/AboutMeComponents/MoreProjects';
+import {Navbar, Footer, HeroSection, ExpertiseSection, CommunitySection, JourneySection, PassionSection, AboutIntro, MoreProjects} from "./index"
+import {React, useState} from "@/app/resources_index"
 
 export default function About() {
   const [expandedSections, setExpandedSections] = useState({

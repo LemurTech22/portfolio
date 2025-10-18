@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import {React} from "@/app/resources_index";
 import AccordionSection from "./AccordionSection";
 
 interface Props {

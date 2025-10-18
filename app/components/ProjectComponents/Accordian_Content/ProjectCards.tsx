@@ -1,5 +1,5 @@
-import React from 'react'
-import { Github } from 'lucide-react'
+"use client";
+import {React, Github} from "@/app/resources_index"
 import { Project, ProjectID, getCategoryIcon, getCategoryColor} from "../index"
 interface ProjectProps{
     project: Project;

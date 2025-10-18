@@ -1,6 +1,5 @@
-// project_categories.ts
-import React from 'react';
-import { Code, Database, Brain, Server } from 'lucide-react';
+"use client";
+import {Code, Database, Brain, Server, React} from '@/app/resources_index'
 import { categoryColors, Category, ProjectID } from './project_builder';
 
 export const getCategoryColor = (category: Category): categoryColors => {

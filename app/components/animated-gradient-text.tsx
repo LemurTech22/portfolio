@@ -1,5 +1,5 @@
-import React, { JSX } from "react";
-
+"use client";
+import {React, JSX } from "@/app/resources_index";
 interface AnimatedGradientTextProps {
   className?: string;
   children: React.ReactNode;

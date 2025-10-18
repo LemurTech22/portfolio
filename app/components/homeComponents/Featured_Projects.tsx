@@ -1,6 +1,5 @@
 'use client'
-import Link from 'next/link'
-import { ExternalLink, Code, Briefcase} from 'lucide-react';
+import {Link, ExternalLink, Code, Briefcase} from "@/app/resources_index"
 
 export default function Featured_Projects()
     {

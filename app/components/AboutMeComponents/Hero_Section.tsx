@@ -1,6 +1,5 @@
 "use client"
-import React from 'react'
-import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
+import {React, AnimatedGradientText} from "@/app/resources_index"
 
 export default function HeroSection(){
     return(

@@ -1,5 +1,5 @@
-import React from 'react';
-import { AnimatedGradientText } from '@/app/components/animated-gradient-text';
+"use client";
+import {React, AnimatedGradientText} from "@/app/resources_index"
 import { Project, ProjectID, ProjectAccordion} from '../index'
 
 interface ProjectDeepDivesProps {

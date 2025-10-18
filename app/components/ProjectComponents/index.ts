@@ -1,7 +1,5 @@
 
 //taskbar
-export {default as Navbar} from '@/app/components/navbar';
-export {default as Footer} from '@/app/components/Footer';
 export {default as HeroSection} from '@/app/components/ProjectComponents/Hero_Section';
 
 //Accordian Gallery

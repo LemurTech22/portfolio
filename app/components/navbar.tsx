@@ -1,11 +1,7 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
 import { images } from '../../assets/assets';
-import Image from 'next/image';
-import {AnimatedTabs} from './animata/container/AnimatedTabs'; // Import the new component
+import {AnimatedTabs} from './animata/container/AnimatedTabs';
+import {Link, usePathname, useState, Menu, X, Image} from "@/app/resources_index"
 
 const menuItems = [
   { name: "Home", href: "/" },

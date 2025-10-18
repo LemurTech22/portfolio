@@ -1,7 +1,5 @@
 "use client";
-import React from "react";
-import { ChevronDown } from "lucide-react";
-
+import {React, ChevronDown} from "@/app/resources_index"
 interface AccordionSectionProps {
   title: string;
   color: "emerald" | "amber" | "purple" | "blue";

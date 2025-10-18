@@ -1,6 +1,5 @@
-import React from "react";
-import { User } from "lucide-react";
-
+"use client";
+import {User, React } from "@/app/resources_index"
 
 export default function AboutMe(){
 

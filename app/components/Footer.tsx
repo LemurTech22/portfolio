@@ -1,6 +1,5 @@
 "use client"
-import { Github, ArrowUp, Linkedin, Mail, MessageSquare } from 'lucide-react';
-import React, { useState} from 'react';
+import {Github, ArrowUp, Linkedin, Mail, MessageSquare, React, useState} from "@/app/resources_index"
 
 export default function Footer(){
     const [showScrollTop, setShowScrollTop] = useState(false);

@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import {React} from '@/app/resources_index';
 import {Project, ProjectID, ProjectCard} from "../index"
 
 interface ProjectsGalleryProps {

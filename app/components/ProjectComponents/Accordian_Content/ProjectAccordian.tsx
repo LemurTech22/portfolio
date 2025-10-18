@@ -1,6 +1,6 @@
-import React from 'react';
-import { ChevronDown, Github, ExternalLink } from 'lucide-react';
+"use client";
 import {Project, ProjectID, getCategoryColor, getCategoryIcon} from "../index"
+import {React, ChevronDown, Github, ExternalLink} from "@/app/resources_index"
 
 interface ProjectAccordionProps {
   project: Project;

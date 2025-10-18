@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useRef } from 'react';
-import {Navbar, Footer, HeroSection, ProjectsGallery,ProjectDeepDives,projects,ProjectID, isProjectID} from '@/app/components/ProjectComponents/index'
+import {HeroSection, ProjectsGallery,ProjectDeepDives, projects,ProjectID, isProjectID} from '@/app/components/ProjectComponents/index'
+import {React, useState, useRef,Navbar, Footer} from "@/app/resources_index"
 
 export default function Projects() {
   const [expandedProjects, setExpandedProjects] = useState<Partial<Record<ProjectID, boolean>>>({});

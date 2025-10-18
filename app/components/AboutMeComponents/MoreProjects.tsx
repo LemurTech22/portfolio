@@ -1,6 +1,5 @@
 "use client"
-import Link from "next/link"
-
+import {Link} from "@/app/resources_index"
 
 export default function MoreProjects(){
     return(
