@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { ExternalLink, Code, Briefcase} from 'lucide-react';
 
-
 export default function Featured_Projects()
     {
     interface featured_projects{

@@ -7,8 +7,6 @@ import { images } from '../../assets/assets';
 import Image from 'next/image';
 import {AnimatedTabs} from './animata/container/AnimatedTabs'; // Import the new component
 
-
-
 const menuItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/pages/about" },
